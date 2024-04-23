@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // COLORS
@@ -12,6 +13,12 @@ const Color redColor = Color(0xFFC62D00);
 const Color warningDarkColor = Color(0xFFDC6803);
 const Color lightGreyColor = Color(0xFFF0F1F2);
 const Color successColor = Color(0xFF0FA958);
+
+// BOX SHADOW
+BoxShadow boxShadow = BoxShadow(
+  color: blackColor.withOpacity(0.05),
+  blurRadius: 10,
+);
 
 // FONT SIZES
 figmaFontsize(int fontSize) {
