@@ -7,14 +7,14 @@ environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
-  auto_size_text: ^3.0.0
-  cupertino_icons: ^1.0.6
+  auto_size_text: 
+  cupertino_icons: 
   flutter:
     sdk: flutter
-  flutter_svg: ^2.0.10+1
-  get: ^4.6.6
-  google_fonts: null
-  pinput: ^4.0.0
+  flutter_svg: 
+  get:
+  google_fonts: 
+  pinput: 
 
 dev_dependencies:
   flutter_test:
