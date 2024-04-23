@@ -104,6 +104,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
+                    elevation: 0,
                     minimumSize: Size(width, height * 0.065),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
@@ -145,6 +146,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                     ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: whiteColor,
+                      elevation: 0,
                       minimumSize: Size(width, height * 0.06),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
