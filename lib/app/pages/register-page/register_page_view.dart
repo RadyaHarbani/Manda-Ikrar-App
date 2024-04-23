@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:manda_ikrar_app/app/pages/login-page/login_page_controller.dart';
-import 'package:manda_ikrar_app/app/pages/login-page/widget/login_form_widget.dart';
+import 'package:manda_ikrar_app/app/pages/register-page/register_page_controller.dart';
+import 'package:manda_ikrar_app/app/pages/register-page/widget/register_form_widget.dart';
 import 'package:manda_ikrar_app/common/helper/themes.dart';
 
-class LoginPageView extends GetView<LoginPageController> {
+class RegisterPageView extends GetView<RegisterPageController> {
   @override
   Widget build(BuildContext context) {
     final Size mediaQuery = MediaQuery.of(context).size;
@@ -57,7 +57,7 @@ class LoginPageView extends GetView<LoginPageController> {
                   group: AutoSizeGroup(),
                   maxLines: 2,
                   TextSpan(
-                    text: 'Selamat Datang \nKembali di Manda',
+                    text: 'Buat Akun dan \nJelajahi Manda',
                     style: tsTitleMediumSemibold(blackColor).copyWith(
                       height: 1.3,
                     ),
@@ -70,15 +70,27 @@ class LoginPageView extends GetView<LoginPageController> {
                   ),
                 ),
                 SizedBox(height: height * 0.04),
-                LoginFormWidget(
+                RegisterFormWidget(
+                  iconPrefix: SvgPicture.asset('assets/icons/icProfile.svg'),
+                  hintText: 'Nama Lengkap',
+                  isObsecure: false,
+                ),
+                SizedBox(height: height * 0.01),
+                RegisterFormWidget(
                   iconPrefix: SvgPicture.asset('assets/icons/icEmail.svg'),
                   hintText: 'Email',
                   isObsecure: false,
                 ),
                 SizedBox(height: height * 0.01),
-                LoginFormWidget(
+                RegisterFormWidget(
                   iconPrefix: SvgPicture.asset('assets/icons/icPassword.svg'),
                   hintText: 'Kata Sandi',
+                  isObsecure: true,
+                ),
+                SizedBox(height: height * 0.01),
+                RegisterFormWidget(
+                  iconPrefix: SvgPicture.asset('assets/icons/icPassword.svg'),
+                  hintText: 'Konfirmasi Kata Sandi',
                   isObsecure: true,
                 ),
                 SizedBox(height: height * 0.05),
