@@ -4,6 +4,10 @@ import 'package:manda_ikrar_app/common/routes/app_pages.dart';
 
 void main() {
   runApp(
-    GetMaterialApp(),
+    GetMaterialApp(
+      title: "Application",
+      initialRoute: AppPages.INITIAL,
+      getPages: AppPages.routes,
+    ),
   );
 }

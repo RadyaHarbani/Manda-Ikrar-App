@@ -30,6 +30,12 @@ BoxShadow shadowBlackBlur10Color5 = BoxShadow(
     blurRadius: 10,
     offset: Offset(0, 0));
 
+// BOX SHADOW
+BoxShadow boxShadow = BoxShadow(
+  color: blackColor.withOpacity(0.05),
+  blurRadius: 10,
+);
+
 // FONT SIZES
 figmaFontsize(int fontSize) {
   return fontSize * 1.2;
