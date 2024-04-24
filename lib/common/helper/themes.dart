@@ -12,6 +12,23 @@ const Color redColor = Color(0xFFC62D00);
 const Color warningDarkColor = Color(0xFFDC6803);
 const Color lightGreyColor = Color(0xFFF0F1F2);
 const Color successColor = Color(0xFF0FA958);
+const Color primaryColorOpacity = Color(0x1049B38D);
+const Color whiteColorOpacity = Color(0x30FFFFFF);
+const Color greyColorOpacity = Color(0x10707070);
+const Color lightGreyOpacity = Color(0x25D9D9D9);
+
+//BOX SHADOW
+BoxShadow shadowBlackBlur15Color5 = BoxShadow(
+    color: Colors.grey.withOpacity(0.5),
+    spreadRadius: 0,
+    blurRadius: 15,
+    offset: Offset(0, 0));
+
+BoxShadow shadowBlackBlur10Color5 = BoxShadow(
+    color: Colors.grey.withOpacity(0.5),
+    spreadRadius: 0,
+    blurRadius: 10,
+    offset: Offset(0, 0));
 
 // BOX SHADOW
 BoxShadow boxShadow = BoxShadow(

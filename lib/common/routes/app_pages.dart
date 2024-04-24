@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:manda_ikrar_app/app/pages/home-page/home_page_binding.dart';
+import 'package:manda_ikrar_app/app/pages/home-page/home_page_view.dart';
 import 'package:manda_ikrar_app/app/pages/address-page/address_page_binding.dart';
 import 'package:manda_ikrar_app/app/pages/address-page/address_page_view.dart';
 import 'package:manda_ikrar_app/app/pages/login-page/login_page_binding.dart';
@@ -13,9 +15,14 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ADDRESS_PAGE;
+  static const INITIAL = Routes.HOME_PAGE;
 
   static final routes = [
+    GetPage(
+      name: _Paths.HOME_PAGE,
+      page: () => HomePageView(),
+      binding: HomePageBinding(),
+    ),
     GetPage(
       name: _Paths.LOGIN_PAGE,
       page: () => LoginPageView(),
