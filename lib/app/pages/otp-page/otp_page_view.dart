@@ -145,8 +145,9 @@ class OtpPageView extends GetView<OtpPageController> {
                     style: tsBodySmallSemibold(primaryColor),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: backgroundColor,
                     elevation: 0,
+                    foregroundColor: backgroundColor,
                     minimumSize: Size(width, height * 0.065),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
