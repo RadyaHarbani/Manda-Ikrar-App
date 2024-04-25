@@ -9,19 +9,19 @@ class LoginFormWidget extends StatelessWidget {
   final Widget? iconSuffix;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
-  final TextInputType? keyboardType;
+  final bool? readOnly;
 
-  LoginFormWidget({
-    Key? key,
-    this.iconPrefix,
-    this.hintText,
-    this.formKey,
-    this.validator,
-    this.isObsecure,
-    this.iconSuffix,
-    this.controller,
-    this.keyboardType,
-  }) : super(key: key);
+  LoginFormWidget(
+      {Key? key,
+      this.iconPrefix,
+      this.hintText,
+      this.formKey,
+      this.validator,
+      this.isObsecure,
+      this.iconSuffix,
+      this.controller,
+      this.readOnly})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +42,7 @@ class LoginFormWidget extends StatelessWidget {
             controller: controller,
             obscureText: isObsecure ?? false,
             validator: validator,
-            
             style: tsBodySmallSemibold(blackColor),
-            keyboardType: keyboardType,
             cursorColor: blackColor,
             decoration: InputDecoration(
               isDense: true,

@@ -1,4 +1,3 @@
 import 'package:get/get.dart';
 
-class EditProfilePageController extends GetxController {
-}
+class EditProfilePageController extends GetxController {}

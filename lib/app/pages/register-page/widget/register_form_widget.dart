@@ -9,7 +9,6 @@ class RegisterFormWidget extends StatelessWidget {
   final Widget? iconSuffix;
   final String? Function(String?)? validator;
   final TextEditingController? controller;
-  final TextInputType? keyboardType;
   final bool? readOnly;
 
   RegisterFormWidget(
@@ -21,8 +20,7 @@ class RegisterFormWidget extends StatelessWidget {
       this.isObsecure,
       this.iconSuffix,
       this.controller,
-      this.readOnly,
-      this.keyboardType})
+      this.readOnly})
       : super(key: key);
 
   @override
@@ -46,7 +44,6 @@ class RegisterFormWidget extends StatelessWidget {
             validator: validator,
             style: tsBodySmallSemibold(blackColor),
             cursorColor: blackColor,
-            keyboardType: keyboardType,
             decoration: InputDecoration(
               isDense: true,
               isCollapsed: true,
@@ -63,7 +60,12 @@ class RegisterFormWidget extends StatelessWidget {
                 vertical: height * 0.018,
               ),
               prefixIcon: iconPrefix,
-              suffixIcon: iconSuffix,
+              suffixIcon: Container(
+                height: 20,
+                width: 20,
+                alignment: Alignment.center,
+                child: iconSuffix,
+              ),
               fillColor: whiteColor,
               filled: true,
               enabledBorder: OutlineInputBorder(

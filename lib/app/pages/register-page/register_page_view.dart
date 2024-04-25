@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:manda_ikrar_app/app/pages/register-page/register_page_controller.dart';
 import 'package:manda_ikrar_app/app/pages/register-page/widget/register_form_widget.dart';
 import 'package:manda_ikrar_app/common/helper/themes.dart';
-import 'package:manda_ikrar_app/common/routes/app_pages.dart';
 
 class RegisterPageView extends GetView<RegisterPageController> {
   @override
@@ -13,14 +12,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
     final Size mediaQuery = MediaQuery.of(context).size;
     final double width = mediaQuery.width;
     final double height = mediaQuery.height;
-
-    final _usernameFormKey = GlobalKey<FormState>();
-    final _emailFormKey = GlobalKey<FormState>();
-    final _passwordFormKey = GlobalKey<FormState>();
-    final _passwordConfirmFormKey = GlobalKey<FormState>();
-
     return Scaffold(
-      resizeToAvoidBottomInset: true,
       backgroundColor: backgroundColor,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -82,107 +74,28 @@ class RegisterPageView extends GetView<RegisterPageController> {
                   iconPrefix: SvgPicture.asset('assets/icons/icProfile.svg'),
                   hintText: 'Nama Lengkap',
                   isObsecure: false,
-                  formKey: _usernameFormKey,
-                  controller: controller.ctrUsername,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'Nama Lengkap Harus Diisi';
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(height: height * 0.01),
                 RegisterFormWidget(
                   iconPrefix: SvgPicture.asset('assets/icons/icEmail.svg'),
                   hintText: 'Email',
                   isObsecure: false,
-                  formKey: _emailFormKey,
-                  controller: controller.ctrEmail,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Email Harus Diisi";
-                    } else if (controller.validateEmail(value) == false) {
-                      return "Email Tidak Valid";
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(height: height * 0.01),
                 RegisterFormWidget(
                   iconPrefix: SvgPicture.asset('assets/icons/icPassword.svg'),
                   hintText: 'Kata Sandi',
-                  isObsecure: controller.isPasswordInvisible.value,
-                  formKey: _passwordFormKey,
-                  controller: controller.ctrPassword,
-                  keyboardType: TextInputType.visiblePassword,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Password Harus Diisi";
-                    } else if (controller.isPasswordValid(value) == false) {
-                      return "Password Harus Mengandung Huruf Besar dan Angka";
-                    }
-                    return null;
-                  },
-                  iconSuffix: Obx(
-                    () => IconButton(
-                      onPressed: () {
-                        controller.isPasswordInvisible.value =
-                            !controller.isPasswordInvisible.value;
-                      },
-                      icon: Icon(
-                        controller.isPasswordInvisible.value
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: greyColor,
-                      ),
-                    ),
-                  ),
+                  isObsecure: true,
                 ),
                 SizedBox(height: height * 0.01),
                 RegisterFormWidget(
                   iconPrefix: SvgPicture.asset('assets/icons/icPassword.svg'),
                   hintText: 'Konfirmasi Kata Sandi',
                   isObsecure: true,
-                  formKey: _passwordConfirmFormKey,
-                  controller: controller.ctrPassword,
-                  keyboardType: TextInputType.visiblePassword,
-                  validator: (value) {
-                    if (controller.confirmPassword(
-                            controller.ctrPassword!.text, value!) ==
-                        false) {
-                      return "Password tidak sama";
-                    }
-                    return null;
-                  },
-                  iconSuffix: Obx(
-                    () => IconButton(
-                      onPressed: () {
-                        controller.isPasswordConfirmInvisible.value =
-                            !controller.isPasswordConfirmInvisible.value;
-                      },
-                      icon: Icon(
-                        controller.isPasswordConfirmInvisible.value
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: greyColor,
-                      ),
-                    ),
-                  ),
                 ),
                 SizedBox(height: height * 0.05),
                 ElevatedButton(
-                  onPressed: () {
-                    if (_usernameFormKey.currentState!.validate() &&
-                        _emailFormKey.currentState!.validate() &&
-                        _passwordFormKey.currentState!.validate() &&
-                        _passwordConfirmFormKey.currentState!.validate()) {
-                      print("Aman");
-                    } else {
-                      print("Gagal");
-                    }
-                  },
+                  onPressed: () {},
                   child: AutoSizeText(
                     'Masuk',
                     group: AutoSizeGroup(),
@@ -252,9 +165,7 @@ class RegisterPageView extends GetView<RegisterPageController> {
                       style: tsBodySmallRegular(greyColor),
                     ),
                     InkWell(
-                      onTap: () {
-                        Get.toNamed(Routes.LOGIN_PAGE);
-                      },
+                      onTap: () {},
                       child: AutoSizeText(
                         'Daftar',
                         group: AutoSizeGroup(),

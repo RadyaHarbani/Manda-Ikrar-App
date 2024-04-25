@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:manda_ikrar_app/app/pages/login-page/login_page_controller.dart';
 import 'package:manda_ikrar_app/app/pages/login-page/widget/login_form_widget.dart';
 import 'package:manda_ikrar_app/common/helper/themes.dart';
-import 'package:manda_ikrar_app/common/routes/app_pages.dart';
 
 class LoginPageView extends GetView<LoginPageController> {
   @override
@@ -13,13 +12,8 @@ class LoginPageView extends GetView<LoginPageController> {
     final Size mediaQuery = MediaQuery.of(context).size;
     final double width = mediaQuery.width;
     final double height = mediaQuery.height;
-
-    final _emailFormKey = GlobalKey<FormState>();
-    final _passwordFormKey = GlobalKey<FormState>();
-
     return Scaffold(
       backgroundColor: backgroundColor,
-      resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: SafeArea(
@@ -80,41 +74,16 @@ class LoginPageView extends GetView<LoginPageController> {
                   iconPrefix: SvgPicture.asset('assets/icons/icEmail.svg'),
                   hintText: 'Email',
                   isObsecure: false,
-                  formKey: _emailFormKey,
-                  controller: controller.ctrEmail,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Email Harus Diisi";
-                    } else if (controller.validateEmail(value) == false) {
-                      return "Email Tidak Valid";
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(height: height * 0.01),
                 LoginFormWidget(
                   iconPrefix: SvgPicture.asset('assets/icons/icPassword.svg'),
                   hintText: 'Kata Sandi',
                   isObsecure: true,
-                  formKey: _passwordFormKey,
-                  controller: controller.ctrPassword,
-                  keyboardType: TextInputType.visiblePassword,
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Password Harus Diisi";
-                    }
-                    return null;
-                  },
                 ),
                 SizedBox(height: height * 0.05),
                 ElevatedButton(
-                  onPressed: () {
-                    if (_emailFormKey.currentState!.validate() &&
-                        _passwordFormKey.currentState!.validate()) {
-                      print('Login Berhasil');
-                    }
-                  },
+                  onPressed: () {},
                   child: AutoSizeText(
                     'Masuk',
                     group: AutoSizeGroup(),
@@ -184,9 +153,7 @@ class LoginPageView extends GetView<LoginPageController> {
                       style: tsBodySmallRegular(greyColor),
                     ),
                     InkWell(
-                      onTap: () {
-                        Get.toNamed(Routes.REGISTER_PAGE);
-                      },
+                      onTap: () {},
                       child: AutoSizeText(
                         'Daftar',
                         group: AutoSizeGroup(),
