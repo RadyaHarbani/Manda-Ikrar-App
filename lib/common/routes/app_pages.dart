@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:manda_ikrar_app/app/pages/home-page/home_page_binding.dart';
+import 'package:manda_ikrar_app/app/pages/home-page/home_page_view.dart';
 import 'package:manda_ikrar_app/app/pages/address-page/address_page_binding.dart';
 import 'package:manda_ikrar_app/app/pages/address-page/address_page_view.dart';
 import 'package:manda_ikrar_app/app/pages/edit-profile-page/edit_profile_page_binding.dart';
@@ -34,7 +36,11 @@ class AppPages {
       name: _Paths.ONBOARDING_PAGE,
       page: () => OnboardingPageView(),
       binding: OnboardingPageBinding(),
-      transition: Transition.noTransition,
+      transition: Transition.noTransition,),
+    GetPage(
+      name: _Paths.HOME_PAGE,
+      page: () => HomePageView(),
+      binding: HomePageBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN_PAGE,
